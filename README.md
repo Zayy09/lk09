@@ -1,58 +1,80 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# 📚 Buku Digital
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Aplikasi Buku Digital adalah sistem manajemen perpustakaan atau koleksi buku digital sederhana yang dibangun menggunakan **Laravel**. Proyek ini dilengkapi dengan fitur CRUD untuk mengelola data buku dan menggunakan **Tailwind CSS** untuk antarmuka pengguna yang modern dan responsif.
 
-## About Laravel
+## 🚀 Teknologi yang Digunakan
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+- **Framework PHP:** [Laravel](https://laravel.com/)
+- **Frontend / Styling:** [Tailwind CSS](https://tailwindcss.com/)
+- **Asset Bundler:** [Vite](https://vitejs.dev/)
+- **Database:** SQLite / MySQL / PostgreSQL (dapat dikonfigurasi)
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## 📋 Persyaratan Sistem
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+Pastikan sistem Anda memenuhi persyaratan berikut sebelum menjalankan proyek ini:
+- PHP >= 8.3
+- Composer
+- Node.js & NPM
+- Database server (jika menggunakan MySQL/PostgreSQL)
 
-## Learning Laravel
+## 🛠️ Cara Instalasi dan Menjalankan Proyek
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+Ikuti langkah-langkah di bawah ini untuk menjalankan aplikasi di lingkungan lokal Anda:
 
-In addition, [Laracasts](https://laracasts.com) contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+1. **Clone repository ini** (jika menggunakan Git) atau pastikan Anda berada di direktori proyek:
+   ```bash
+   cd buku-digital
+   ```
 
-You can also watch bite-sized lessons with real-world projects on [Laravel Learn](https://laravel.com/learn), where you will be guided through building a Laravel application from scratch while learning PHP fundamentals.
+2. **Instal dependensi PHP menggunakan Composer:**
+   ```bash
+   composer install
+   ```
 
-## Agentic Development
+3. **Instal dependensi Node.js (Frontend):**
+   ```bash
+   npm install
+   ```
 
-Laravel's predictable structure and conventions make it ideal for AI coding agents like Claude Code, Cursor, and GitHub Copilot. Install [Laravel Boost](https://laravel.com/docs/ai) to supercharge your AI workflow:
+4. **Siapkan file environment:**
+   Salin file `.env.example` menjadi `.env`
+   ```bash
+   cp .env.example .env
+   ```
 
-```bash
-composer require laravel/boost --dev
+5. **Generate Application Key:**
+   ```bash
+   php artisan key:generate
+   ```
 
-php artisan boost:install
-```
+6. **Konfigurasi Database:**
+   Buka file `.env` dan sesuaikan konfigurasi database Anda. Jika Anda ingin menggunakan SQLite dengan cepat, cukup pastikan DB_CONNECTION diatur ke `sqlite` (Laravel akan membuat file databasenya otomatis jika belum ada saat migrasi).
 
-Boost provides your agent 15+ tools and skills that help agents build Laravel applications while following best practices.
+7. **Jalankan Migrasi Database:**
+   Perintah ini akan membuat tabel-tabel yang dibutuhkan, seperti tabel `books` dan `users`.
+   ```bash
+   php artisan migrate
+   ```
 
-## Contributing
+8. **Build Aset Frontend (Tailwind CSS via Vite):**
+   ```bash
+   npm run build
+   ```
+   *Atau jalankan `npm run dev` jika Anda sedang melakukan pengembangan (development).*
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+9. **Jalankan Local Development Server:**
+   ```bash
+   php artisan serve
+   ```
 
-## Code of Conduct
+Aplikasi sekarang dapat diakses melalui browser di: `http://localhost:8000`
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+## 📂 Struktur Utama Proyek
 
-## Security Vulnerabilities
+- `app/Models/Book.php` - Model utama untuk mengelola data buku.
+- `app/Http/Controllers/BookController.php` - Controller untuk mengatur logika CRUD buku.
+- `resources/views/` - Berisi file blade template untuk tampilan antarmuka (UI).
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+## 📄 Lisensi
 
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+Proyek ini bersifat *open-source* dan dilisensikan di bawah [MIT license](https://opensource.org/licenses/MIT).
